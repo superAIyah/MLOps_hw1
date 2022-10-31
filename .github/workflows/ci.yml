@@ -22,9 +22,6 @@ jobs:
     - name: Tests
       run: python -m unittest
 
-    - name: ls
-      run: ls
-
     - name: Pipeline run
-      run: python src/train_pipeline.py configs/train_config.yaml
+      run: python3 -m src/train_pipeline.py configs/train_config.yaml
 
