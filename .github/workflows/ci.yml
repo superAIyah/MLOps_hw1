@@ -11,7 +11,7 @@ jobs:
     - name: Git clone my repo
       uses: actions/checkout@v1
 
-    - name: prepare requirements
+    - name: prepare dependencies
       run: |
         make test_environment
         make requirements
@@ -26,5 +26,5 @@ jobs:
       run: ls
 
     - name: Pipeline run
-      run: python3 src/train_pipeline.py configs/train_config.yaml
+      run: python src/train_pipeline.py configs/train_config.yaml
 
