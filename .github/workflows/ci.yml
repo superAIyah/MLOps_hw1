@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - homework1
+      - hw1
 
 jobs:
   my_checks:
