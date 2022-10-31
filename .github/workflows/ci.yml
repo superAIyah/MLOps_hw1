@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - homework1
+
+jobs:
+  my_checks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Git clone my repo
+      uses: actions/checkout@v1
+
+    - name: prepare requirements
+      run: |
+        make test_environment
+        make requirements
+
+    - name: Linter
+      run: make lint
+
+    - name: Tests
+      run: python -m unittest
