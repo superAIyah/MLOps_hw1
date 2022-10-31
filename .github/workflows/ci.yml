@@ -23,5 +23,6 @@ jobs:
       run: python -m unittest
 
     - name: Pipeline run
-      run: python3 -m src/train_pipeline.py configs/train_config.yaml
+      run: python3 -m src.train_pipeline configs/train_config.yaml
+
 
