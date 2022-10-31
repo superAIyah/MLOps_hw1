@@ -21,3 +21,7 @@ jobs:
 
     - name: Tests
       run: python -m unittest
+
+    - name: Pipeline rin
+      run: python3 src/train_pipeline.py configs/train_config.yaml
+
