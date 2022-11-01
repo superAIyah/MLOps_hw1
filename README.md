@@ -3,6 +3,22 @@ ml_project
 
 VK MLOps HW 1
 
+Installation: 
+~~~
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+~~~
+Usage:
+~~~
+python3 -m src.train_pipeline configs/train_config.yaml
+~~~
+
+Test:
+~~~
+python -m unittest
+~~~
+
 Project Organization
 ------------
 
