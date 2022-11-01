@@ -48,6 +48,8 @@ Project Organization
     │   ├── data           <- Scripts to download or generate data
     │   │   └── make_dataset.py
     │   │
+    |   ├── entities       <- Data classes for reading config.yml
+    │   │   
     │   ├── features       <- Scripts to turn raw data into features for modeling
     │   │   └── build_features.py
     │   │
