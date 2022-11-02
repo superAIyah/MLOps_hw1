@@ -18,10 +18,12 @@ handler = logging.StreamHandler(sys.stdout)
 logger.setLevel(logging.INFO)
 logger.addHandler(handler)
 
+
 def predict_pipeline(config_path: str):
 
     predict_pipeline_params = read_predict_pipeline_params(config_path)
     return run_predict_pipeline(predict_pipeline_params)
+
 
 def run_predict_pipeline(predict_pipeline_params):
     logger.info(f"start predict pipeline with params {predict_pipeline_params}")
@@ -35,11 +37,15 @@ def run_predict_pipeline(predict_pipeline_params):
         data
     )
 
-    pd.DataFrame(predicts).to_csv(predict_pipeline_params.output_predict_path, index=False)
+    pd.DataFrame(predicts).to_csv(
+        predict_pipeline_params.output_predict_path, index=False
+    )
 
-    logger.info(f"predictions are saved in {predict_pipeline_params.output_predict_path}")
+    logger.info(f"predictions are saved in \
+    {predict_pipeline_params.output_predict_path}")
 
     return predict_pipeline_params.output_predict_path
+
 
 @click.command(name="predict_pipeline")
 @click.argument("config_path")

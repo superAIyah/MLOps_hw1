@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from marshmallow_dataclass import class_schema
 import yaml
 
+
 @dataclass()
 class PredictPipelineParams:
     input_data_path: str

@@ -60,6 +60,7 @@ def serialize_model(model: object, output: str) -> str:
         pickle.dump(model, f)
     return output
 
+
 def load_model(
     model_path: str
 ) -> Pipeline:
