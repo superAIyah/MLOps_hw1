@@ -5,8 +5,9 @@ splitting_params:
   val_size: 0.2
   random_state: 42
 train_params:
-  model_type: "RandomForestClassifier"
+  model_type: "KNN"
 feature_params:
   transformers:
     - PolynomialFeatures
+    - StandardScaler
   target_col: "condition"

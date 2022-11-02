@@ -3,6 +3,7 @@ import sys
 import warnings
 import json
 import click
+import mlflow
 
 from src.data import read_data, split_train_val_data
 from src.entities.train_pipeline_params import read_training_pipeline_params
@@ -11,7 +12,8 @@ from src.models import (
     train_model,
     predict_model,
     evaluate_model,
-    serialize_model
+    serialize_model,
+    load_model
 )
 from src.models.model_fit_predict import create_inference_pipeline
 
@@ -25,6 +27,23 @@ logger.addHandler(handler)
 
 def train_pipeline(config_path: str):
     training_pipeline_params = read_training_pipeline_params(config_path)
+
+    if training_pipeline_params.use_mlflow:
+
+        mlflow.set_experiment(training_pipeline_params.mlflow_experiment)
+        with mlflow.start_run():
+            print("Using mlflow")
+            mlflow.log_artifact(config_path)
+            model_path, metrics = run_train_pipeline(training_pipeline_params)
+            mlflow.log_metrics(metrics)
+            mlflow.log_artifact(model_path)
+            mlflow.sklearn.log_model(
+                load_model(training_pipeline_params.output_model_path), "model"
+            )
+            mlflow.log_param(
+                "Model type", training_pipeline_params.train_params.model_type
+            )
+
     return run_train_pipeline(training_pipeline_params)
 
 

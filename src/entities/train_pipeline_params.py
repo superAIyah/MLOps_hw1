@@ -16,9 +16,12 @@ class TrainingPipelineParams:
     output_model_path: str
     metric_path: str
     splitting_params: SplittingParams
+    train_params: TrainingParams
     feature_params: FeatureParams
     train_params: TrainingParams
     downloading_params: Optional[DownloadParams] = None
+    use_mlflow: bool = True
+    mlflow_experiment: str = "Model inference"
 
 
 TrainingPipelineParamsSchema = class_schema(TrainingPipelineParams)
