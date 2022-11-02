@@ -2,7 +2,7 @@ from src.features.CustomTransformer import CustomTransformer
 from .faker import get_fake_data
 import unittest
 
-#python3 -m unittest tests/test_transformer.py
+
 class TestsLruFileGen(unittest.TestCase):
 
     def test_shape(self):

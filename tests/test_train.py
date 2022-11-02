@@ -1,7 +1,5 @@
 import unittest
-
 import pandas as pd
-
 from src.train_pipeline import *
 
 class TestTrainTest(unittest.TestCase):
