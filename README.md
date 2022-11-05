@@ -9,10 +9,15 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ~~~
-Usage:
+Train:
 ~~~
 python3 -m src.train_pipeline configs/train_config.yaml
 ~~~
+Test:
+~~~
+python3 -m src.predict_pipeline configs/predict_config.yaml
+~~~
+
 
 Test:
 ~~~
@@ -36,7 +41,6 @@ Project Organization
     ├── notebooks          <- Exploratory data analysis
     │
     ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
